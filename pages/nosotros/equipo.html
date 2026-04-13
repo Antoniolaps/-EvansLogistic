@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo – Evans Logistics</title>
+    <meta name="description"
+        content="Conoce al equipo directivo y profesional de Grupo Evans Logistics, líderes en logística y transporte en Panamá.">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@4.5.0/index.min.css" rel="stylesheet">
+    <link href="../../assets/css/styles.css" rel="stylesheet">
+    <link href="../../assets/css/responsive.css" rel="stylesheet">
+    <style>
+        /* ── HERO ── */
+        .team-hero {
+            background: linear-gradient(135deg, #064d7a 0%, var(--celeste) 60%, #0989d9 100%);
+            padding: 130px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(255,255,255,0.05)' d='M0,192L60,202.7C120,213,240,235,360,224C480,213,600,171,720,165.3C840,160,960,192,1080,197.3C1200,203,1320,181,1380,170.7L1440,160L1440,320L0,320Z'/%3E%3C/svg%3E") bottom/cover no-repeat;
+        }
+
+        .team-hero h1 {
+            color: #fff;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .team-hero p {
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 0 auto 20px;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .team-hero .breadcrumb {
+            position: relative;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        .team-hero .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .team-hero .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        /* ── STATS STRIP ── */
+        .team-stats-strip {
+            background: #fff;
+            border-bottom: 1px solid #eef2f7;
+            padding: 28px 0;
+        }
+
+        .team-stats-strip .strip-inner {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .strip-stat {
+            text-align: center;
+        }
+
+        .strip-stat .num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--celeste);
+            line-height: 1;
+            display: block;
+        }
+
+        .strip-stat .lbl {
+            font-size: 0.78rem;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ── SECTION INTRO ── */
+        .team-intro {
+            padding: 70px 0 20px;
+        }
+
+        /* ── DIRECTIVOS GRID ── */
+        .team-section {
+            padding: 30px 0 60px;
+        }
+
+        .team-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--celeste-light, #e3f2fd);
+            color: var(--celeste);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 28px;
+        }
+
+        .team-grid.directors {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* ── TARJETA DE MIEMBRO ── */
+        .member-card {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(11, 116, 184, 0.08);
+            border: 1px solid rgba(11, 116, 184, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(11, 116, 184, 0.18);
+        }
+
+        /* Foto / Avatar */
+        .member-avatar {
+            height: 220px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-avatar.rojo {
+            background: linear-gradient(135deg, #fce4e7 0%, #f8c0c8 100%);
+        }
+
+        .member-avatar.oscuro {
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+        }
+
+        .member-avatar.verde {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .avatar-initials {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            background: var(--celeste);
+            box-shadow: 0 6px 24px rgba(11, 116, 184, 0.35);
+            z-index: 2;
+            position: relative;
+        }
+
+        .member-avatar.rojo .avatar-initials {
+            background: var(--rojo, #dd1125);
+            box-shadow: 0 6px 24px rgba(221, 17, 37, 0.35);
+        }
+
+        .member-avatar.oscuro .avatar-initials {
+            background: #3f4c8a;
+            box-shadow: 0 6px 24px rgba(63, 76, 138, 0.35);
+        }
+
+        .member-avatar.verde .avatar-initials {
+            background: #2e7d32;
+            box-shadow: 0 6px 24px rgba(46, 125, 50, 0.35);
+        }
+
+        /* Decorativo círculo fondo */
+        .member-avatar::before {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            top: -40px;
+            right: -40px;
+        }
+
+        .member-avatar::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            bottom: -20px;
+            left: 20px;
+        }
+
+        /* Badge de cargo */
+        .member-badge {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--celeste);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            white-space: nowrap;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            z-index: 3;
+        }
+
+        .member-avatar.rojo .member-badge {
+            background: var(--rojo, #dd1125);
+        }
+
+        .member-avatar.oscuro .member-badge {
+            background: #3f4c8a;
+        }
+
+        .member-avatar.verde .member-badge {
+            background: #2e7d32;
+        }
+
+        /* Cuerpo */
+        .member-body {
+            padding: 22px 24px 26px;
+        }
+
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--gris-oscuro, #1a1a2e);
+            margin: 0 0 4px;
+        }
+
+        .member-role {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--celeste);
+            margin: 0 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .member-bio {
+            font-size: 0.87rem;
+            color: #666;
+            line-height: 1.65;
+            margin: 0 0 16px;
+        }
+
+        .member-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .member-tag {
+            background: var(--celeste-light, #e3f2fd);
+            color: var(--celeste);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 8px;
+        }
+
+        .member-social a {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: #f5f7fa;
+            color: #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .member-social a:hover {
+            background: var(--celeste);
+            color: #fff;
+        }
+
+        /* ── CTA FINAL ── */
+        .team-cta {
+            background: linear-gradient(135deg, var(--celeste) 0%, #064d7a 100%);
+            border-radius: 24px;
+            padding: 56px 44px;
+            text-align: center;
+            margin: 20px 0 60px;
+            color: #fff;
+        }
+
+        .team-cta h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .team-cta p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.82);
+            max-width: 500px;
+            margin: 0 auto 28px;
+            line-height: 1.65;
+        }
+
+        .team-cta .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            padding: 13px 30px;
+            border-radius: 50px;
+            background: #fff;
+            color: var(--celeste);
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-white {
+            padding: 13px 30px;
+            border-radius: 50px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #fff;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .team-grid.directors {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .team-grid,
+            .team-grid.directors {
+                grid-template-columns: 1fr;
+            }
+
+            .strip-inner {
+                gap: 30px;
+            }
+
+            .team-cta {
+                padding: 38px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="../../index.html" class="logo"><img src="../../assets/img/EVANS-LOGO-WEB.png"
+                    alt="Evans Logistics Logo"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle">Servicios</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../servicios/transporte-terrestre.html">🚛 Transporte Terrestre</a></li>
+                        <li><a href="../servicios/transporte-aereo.html">✈️ Transporte Aéreo</a></li>
+                        <li><a href="../servicios/transporte-maritimo.html">🚢 Transporte Marítimo</a></li>
+                        <li><a href="../servicios/almacenamiento.html">📦 Almacenamiento</a></li>
+                        <li><a href="../servicios/logistica-internacional.html">🌍 Logística Internacional</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle active">Nosotros</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                        <li><a href="equipo.html">Nuestro Equipo</a></li>
+                        <li><a href="historia.html">Historia</a></li>
+                        <li><a href="#">Certificaciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="../proveedores.html">Proveedores</a></li>
+                <li><a href="../noticias/index.html">Noticias</a></li>
+                <li><a href="../contacto.html" class="btn-cta">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="team-hero">
+        <div class="container">
+            <h1>👥 Nuestro Equipo</h1>
+            <p>Profesionales apasionados por la logística, comprometidos con la excelencia y el servicio al cliente.</p>
+            <div class="breadcrumb">
+                <a href="../../index.html">Inicio</a> / <a href="#">Nosotros</a> / <span>Nuestro Equipo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="team-stats-strip">
+        <div class="container">
+            <div class="strip-inner">
+                <div class="strip-stat">
+                    <span class="num">50+</span>
+                    <span class="lbl">Profesionales</span>
+                </div>
+                <div class="strip-stat">
+                    <span class="num">15+</span>
+                    <span class="lbl">Años de Experencia</span>
+                </div>
+                <div class="strip-stat">
+                    <span class="num">8</span>
+                    <span class="lbl">Departamentos</span>
+                </div>
+                <div class="strip-stat">
+                    <span class="num">3</span>
+                    <span class="lbl">Continentes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIRECCIÓN GENERAL -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="team-section-label">🏆 Dirección General</div>
+                <h2 class="section-title">Liderazgo <span>Ejecutivo</span></h2>
+                <p class="section-subtitle">El equipo directivo que lleva a Evans Logistics hacia el futuro de la
+                    logística global.</p>
+            </div>
+
+            <div class="team-grid directors animate-on-scroll">
+
+                <!-- CEO -->
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <div class="avatar-initials">CE</div>
+                        <span class="member-badge">CEO & Fundador</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Carlos Evans</h3>
+                        <p class="member-role">Director General</p>
+                        <p class="member-bio">Fundador de Evans Logistics con más de 20 años en la industria logística.
+                            Visionario en el desarrollo de rutas multimodales en Centroamérica y el Caribe.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Logística</span>
+                            <span class="member-tag">Liderazgo</span>
+                            <span class="member-tag">Estrategia</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COO -->
+                <div class="member-card">
+                    <div class="member-avatar rojo">
+                        <div class="avatar-initials">MR</div>
+                        <span class="member-badge">COO</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">María Rodríguez</h3>
+                        <p class="member-role">Directora de Operaciones</p>
+                        <p class="member-bio">Especialista en supply chain con certificación APICS. Responsable de
+                            coordinar más de 1,500 envíos diarios con una eficiencia operativa del 98%.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Supply Chain</span>
+                            <span class="member-tag">Operaciones</span>
+                            <span class="member-tag">APICS</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CFO -->
+                <div class="member-card">
+                    <div class="member-avatar oscuro">
+                        <div class="avatar-initials">JP</div>
+                        <span class="member-badge">CFO</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Jorge Pérez</h3>
+                        <p class="member-role">Director Financiero</p>
+                        <p class="member-bio">MBA con especialización en finanzas corporativas internacionales.
+                            Responsable de la expansión de Evans a nuevos mercados en América Latina y Europa.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Finanzas</span>
+                            <span class="member-tag">MBA</span>
+                            <span class="member-tag">Expansión</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GERENTES -->
+    <section class="team-section" style="padding-top:0;">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="team-section-label">⚙️ Gerencias</div>
+                <h2 class="section-title">Equipo <span>Gerencial</span></h2>
+                <p class="section-subtitle">Los responsables de cada área que garantizan la excelencia en nuestros
+                    servicios.</p>
+            </div>
+
+            <div class="team-grid animate-on-scroll">
+
+                <div class="member-card">
+                    <div class="member-avatar verde">
+                        <div class="avatar-initials">AL</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Ana López</h3>
+                        <p class="member-role">Gerente de Logística Internacional</p>
+                        <p class="member-bio">Coordinación de envíos a más de 50 países. Experta en despacho aduanero y
+                            normativas internacionales de transporte.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Aduanas</span>
+                            <span class="member-tag">Internacional</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <div class="avatar-initials">RM</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Roberto Martínez</h3>
+                        <p class="member-role">Gerente de Flota Terrestre</p>
+                        <p class="member-bio">Responsable de gestionar más de 200 vehículos. Especialista en
+                            optimización de rutas y mantenimiento preventivo de flotillas.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Flota</span>
+                            <span class="member-tag">GPS</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar rojo">
+                        <div class="avatar-initials">SG</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Sofía García</h3>
+                        <p class="member-role">Gerente de Atención al Cliente</p>
+                        <p class="member-bio">Lidera un equipo de 15 agentes de soporte 24/7. Tasa de satisfacción del
+                            97% en encuestas post-servicio durante 3 años consecutivos.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">CX</span>
+                            <span class="member-tag">Soporte 24/7</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar oscuro">
+                        <div class="avatar-initials">DV</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Diego Vargas</h3>
+                        <p class="member-role">Gerente de Tecnología</p>
+                        <p class="member-bio">Arquitecto del sistema de rastreo en tiempo real de Evans. Lidera la
+                            transformación digital y la integración de IA en los procesos logísticos.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">TI</span>
+                            <span class="member-tag">Rastreo GPS</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="GitHub">GH</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar verde">
+                        <div class="avatar-initials">LC</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Laura Castro</h3>
+                        <p class="member-role">Gerente Comercial</p>
+                        <p class="member-bio">Responsable del crecimiento de la cartera de clientes corporativos. Ha
+                            cerrado acuerdos con más de 200 empresas en los últimos 3 años.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">Ventas</span>
+                            <span class="member-tag">B2B</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <div class="avatar-initials">FN</div>
+                        <span class="member-badge">Gerencia</span>
+                    </div>
+                    <div class="member-body">
+                        <h3 class="member-name">Felipe Núñez</h3>
+                        <p class="member-role">Gerente de Almacenamiento</p>
+                        <p class="member-bio">Administra más de 50,000 m² de centros de distribución certificados.
+                            Especialista en WMS y logística de última milla.</p>
+                        <div class="member-tags">
+                            <span class="member-tag">WMS</span>
+                            <span class="member-tag">Almacenes</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#" title="LinkedIn">in</a>
+                            <a href="#" title="Email">@</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA ÚNETE -->
+    <section class="section" style="padding-top:0; padding-bottom: 80px;">
+        <div class="container">
+            <div class="team-cta animate-on-scroll">
+                <h2>¿Quieres Unirte al Equipo?</h2>
+                <p>Buscamos profesionales apasionados por la logística y comprometidos con la excelencia. Sé parte de
+                    una empresa en constante crecimiento.</p>
+                <div class="btn-group">
+                    <a href="../contacto.html" class="btn-white">Ver Vacantes</a>
+                    <a href="../contacto.html" class="btn-outline-white">Enviar CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Evans<span>Logistic</span></h3>
+                <p>Soluciones integrales de logística y transporte para empresas de todos los tamaños. Tu éxito es
+                    nuestra misión.</p>
+                <div class="footer-social">
+                    <a href="#" title="Facebook">FB</a>
+                    <a href="#" title="Twitter">TW</a>
+                    <a href="#" title="Instagram">IG</a>
+                    <a href="#" title="LinkedIn">IN</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="../servicios/transporte-terrestre.html">Transporte Terrestre</a></li>
+                    <li><a href="../servicios/transporte-aereo.html">Transporte Aéreo</a></li>
+                    <li><a href="../servicios/transporte-maritimo.html">Transporte Marítimo</a></li>
+                    <li><a href="../servicios/almacenamiento.html">Almacenamiento</a></li>
+                    <li><a href="../servicios/logistica-internacional.html">Logística Internacional</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="quienes-somos.html">Sobre Nosotros</a></li>
+                    <li><a href="equipo.html">Nuestro Equipo</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="../noticias/index.html">Noticias</a></li>
+                    <li><a href="../terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📍</span>
+                    <div class="footer-contact-text">
+                        <strong>Dirección</strong>
+                        The Century Tower, Piso 16, Panama City
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📞</span>
+                    <div class="footer-contact-text">
+                        <strong>Teléfono</strong>
+                        +507 6750-2610
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉️</span>
+                    <div class="footer-contact-text">
+                        <strong>Email</strong>
+                        ventaselogistics01@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <a href="../../index.html">Evans Logistics</a>. Todos los derechos reservados. | <a
+                    href="../terminos-condiciones.html" style="opacity:0.7;">Términos y Condiciones</a></p>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
